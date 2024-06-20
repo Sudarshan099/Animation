@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sliding Navigation Menu</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        display: flex;
+      }
+
+      #toggleMenu {
+        margin: 200px;
+        padding: 10px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .menu {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100vh;
+        background-color: #333;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+      }
+
+      .menu ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .menu ul li {
+        padding: 20px;
+        border-bottom: 1px solid #444;
+      }
+
+      .menu ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+      }
+
+      .menu ul li a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="toggleMenu">Toggle Menu</button>
+    <div class="menu">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <script>
+      const toggleButton = document.getElementById("toggleMenu");
+      const menu = document.querySelector(".menu");
+
+      toggleButton.addEventListener("click", () => {
+        const isMenuVisible = menu.style.left === "0px";
+        menu.style.left = isMenuVisible ? "-250px" : "0px";
+      });
+    </script>
+  </body>
+</html>
